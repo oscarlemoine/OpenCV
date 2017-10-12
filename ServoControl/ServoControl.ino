@@ -20,26 +20,25 @@ void loop() {
           dato = Serial.read();
           switch(dato){            
             case 'L'://Left
-              anguloX =- 10;
+              anguloX = anguloX + 10;
+              servoX.write(anguloX);
               break;
             case 'R'://Right
-              anguloX =+ 10;
+              anguloX = anguloX - 10;
+              servoX.write(anguloX);
               break;
             case 'U'://UP
-              anguloY =-10;
+              anguloY = anguloY + 10;
+              servoY.write(anguloY);   
               break;
             case 'D'://Down
-              anguloY =+10;
+              anguloY = anguloY - 10;
+              servoY.write(anguloY);   
               break;
-            /*case "S":
-              anguloX;
-              anguloY;
-            */
+            case '0'://BUSCAR
+              servoX.write(0);     
+              break;              
             }
         }
-          Serial.print("Servo X = " + anguloX);
-          Serial.println(" , Y = " + anguloY);          
-          servoX.write(anguloX);
-          servoY.write(anguloY);       
    }
  
